@@ -15,6 +15,7 @@ app.photoSuccess = (mediaFiles) ->
 		image.src = mediaFile.fullPath
 
 app.photoFail = (message) ->
+	# todo: modal
 	alert 'Failed because: ' + message
 
 

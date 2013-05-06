@@ -10,20 +10,20 @@ module.exports = (grunt) ->
 		uglify:
 			components:
 				options:
-					sourceMap: 'lib/components.js.map'
+					#sourceMap: 'lib/components.js.map'
 					mangle: false
 				files:
-					'lib/components.min.js': [
+					'www/lib/components.min.js': [
 						'components/underscore/underscore.js'
 						'components/backbone/backbone.js'
 					]
 			app:
 				options:
-					sourceMap: 'lib/app.js.map'
+					#sourceMap: 'lib/app.js.map'
 					mangle: false
 					wrap: 'lh'
 				files:
-					'lib/app.min.js': [
+					'www/lib/app.min.js': [
 						'scripts/tmp/app.js'
 					]
 
@@ -59,12 +59,12 @@ module.exports = (grunt) ->
 				compress: true
 			components:
 				files:
-					'lib/components.min.css': [
+					'www/lib/components.min.css': [
 						'scripts/tmp/bootstrap.less'
 					]
 			app:
 				files: 
-					'lib/style.min.css': [
+					'www/lib/style.min.css': [
 						'scripts/less/app.less'
 					]
 
@@ -89,20 +89,3 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.loadNpmTasks 'grunt-contrib-connect'
 	grunt.loadNpmTasks 'grunt-contrib-concat'
-
-	grunt.registerTask 'gitploy', 'Deploy to GitHub Pages', ->
-		paths = ['lib', 'index.html']
-		Git = require 'git-wrapper'
-		git = new Git()
-		done = @async()
-		git.exec 'checkout gh-pages', (err) ->
-			throw err if err?
-			git.exec 'checkout master -- ' + paths.join(' '), (err) ->
-				throw err if err?
-				git.exec 'commit -am "updates from master"', (err) ->
-					throw err if err?
-					git.exec 'push origin gh-pages', (err) ->
-						throw err if err?
-						git.exec 'checkout master', (err) ->
-							throw err if err?
-							done()

@@ -10,7 +10,6 @@
     "grunt-contrib-coffee": "0.7.x",
     "grunt-contrib-watch": "0.4.x",
     "grunt-contrib-connect": "0.3.x",
-    "git-wrapper": "0.1.x",
     "grunt-contrib-concat": "0.3.x"
   }
 }
