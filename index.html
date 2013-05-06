@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Operation Longhaul</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="lib/components.min.css">
+		<link rel="stylesheet" href="lib/style.min.css">
+		<!--
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="lib/components.min.js"></script>
+		-->
+		<script src="lib/cordova-2.7.0.js"></script>
+		<script src="lib/app.min.js"></script>
+	</head>
+	<body>
+
+		<div class="container">
+
+			<header class="text-center">
+				<h3>Operation Longhaul</h3>
+			</header>
+
+			<p class="text-center">
+				<button class="btn" onclick="lh.app.capturePhoto();">Capture Photo</button>
+			</p>
+			
+			<p class="text-center">
+				<ul class="thumbnails">
+					<li class="span3">
+						<div class="thumbnail">
+							<img id="myImage">
+						</div>
+					</li>
+				</ul>
+			</p>
+			
+		</div>
+
+	</body>
+</html>

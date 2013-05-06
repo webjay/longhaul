@@ -12,3 +12,9 @@ logs
 results
 
 npm-debug.log
+
+components
+node_modules
+
+scripts/tmp
+.DS_Store

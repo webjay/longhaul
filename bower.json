@@ -1,0 +1,14 @@
+{
+  "name": "longhaul",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "backbone": "~1.0.0",
+    "underscore": "~1.4.4",
+    "bootstrap": "~2.3.1"
+  }
+}
