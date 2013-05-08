@@ -1,1 +1,6 @@
-
+#productform legend{border:none;}
+#camtoggle{margin-right:10px;}
+.center.navbar .nav,.center.navbar .nav>li{float:none;display:inline-block;vertical-align:top;}
+.center .navbar-inner{text-align:center;}
+.center .dropdown-menu{text-align:left;}
+@media (max-width:979px){.navbar-fixed-top,.navbar-fixed-bottom{position:fixed;margin-left:0px;margin-right:0px;}}

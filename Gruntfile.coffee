@@ -3,9 +3,19 @@ module.exports = (grunt) ->
 	grunt.initConfig
 
 		coffee:
+			options:
+				join: true
+				bare: true
 			compile:
 				files:
-					'scripts/tmp/app.js': 'scripts/app.coffee'
+					'scripts/tmp/app.js': [
+						'scripts/init.coffee'
+						'scripts/backbone/models.coffee'
+						'scripts/backbone/collections.coffee'
+						'scripts/backbone/templates.coffee'
+						'scripts/backbone/views.coffee'
+						'scripts/app.coffee'
+					]
 
 		uglify:
 			components:
@@ -14,6 +24,7 @@ module.exports = (grunt) ->
 					mangle: false
 				files:
 					'www/lib/components.min.js': [
+						'components/jquery/jquery.js'
 						'components/underscore/underscore.js'
 						'components/backbone/backbone.js'
 					]
@@ -51,7 +62,8 @@ module.exports = (grunt) ->
 					'components/bootstrap/less/utilities.less'
 					'components/bootstrap/less/responsive-utilities.less'
 					'components/bootstrap/less/responsive-767px-max.less'
-					'components/bootstrap/less/responsive-navbar.less'						
+					'components/bootstrap/less/responsive-navbar.less'
+					'components/bootstrap/less/sprites.less'
 				]
 
 		less:

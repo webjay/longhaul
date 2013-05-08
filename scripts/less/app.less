@@ -1,0 +1,35 @@
+#productform {
+	legend {
+		border: none;
+	}
+}
+
+#camtoggle {
+	margin-right: 10px;
+}
+
+/* center navbar items */
+.center.navbar {
+	.nav, .nav > li {
+		float: none;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+.center {
+	.navbar-inner {
+		text-align: center;
+	}
+	.dropdown-menu {
+		text-align: left;
+	}
+}
+
+/* Override Bootstrap Responsive CSS fixed navbar */
+@media (max-width: 979px) {
+	.navbar-fixed-top, .navbar-fixed-bottom {
+		position: fixed;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
