@@ -3,4 +3,7 @@
 .center.navbar .nav,.center.navbar .nav>li{float:none;display:inline-block;vertical-align:top;}
 .center .navbar-inner{text-align:center;}
 .center .dropdown-menu{text-align:left;}
-@media (max-width:979px){.navbar-fixed-top,.navbar-fixed-bottom{position:fixed;margin-left:0px;margin-right:0px;}}
+@media (max-width:979px){.navbar-fixed-top,.navbar-fixed-bottom{position:fixed;margin-left:0px;margin-right:0px;}}#savings tbody img{max-width:20px;max-height:20px;}
+.text-right{text-align:right !important;}
+.text-center{text-align:center !important;}
+.text-left{text-align:left !important;}

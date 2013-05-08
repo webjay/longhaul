@@ -64,6 +64,7 @@ module.exports = (grunt) ->
 					'components/bootstrap/less/responsive-767px-max.less'
 					'components/bootstrap/less/responsive-navbar.less'
 					'components/bootstrap/less/sprites.less'
+					'components/bootstrap/less/tables.less'
 				]
 
 		less:
