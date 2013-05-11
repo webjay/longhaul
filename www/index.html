@@ -7,8 +7,9 @@
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 	<link rel="stylesheet" href="lib/components.min.css" />
 	<link rel="stylesheet" href="lib/style.min.css" />
+	<!--<script src="http://debug.phonegap.com/target/target-script-min.js#longhaul"></script>-->
+	<script src="cordova-2.7.0.js"></script>
 	<script src="lib/components.min.js"></script>
-	<!--<script src="cordova-2.7.0.js"></script>-->
 	<script src="lib/app.min.js"></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
 
 			<form id="productform">
 				<fieldset>
-					<legend>What didn't you buy?</legend>
+					<legend>What did you <strong>not</strong> buy?</legend>
 					<input name="product" type="text" class="input-block-level" placeholder="What did you resist?" autofocus />
 					<div class="controls controls-row">
 						<button type="button" id="camtoggle" class="btn pull-left"><i class="icon-camera"></i></button>
@@ -33,7 +34,7 @@
 			<div id="snaps" class="text-center">
 				<ul class="thumbnails"></ul>
 			</div>
-			
+
 		</section>
 
 
@@ -60,7 +61,7 @@
 
 		</section>
 
-		
+
 	</div>
 
 	<div class="navbar navbar-fixed-bottom center">
@@ -72,6 +73,6 @@
 			</ul>
 		</nav>
 	</div>
-	
+
 </body>
 </html>

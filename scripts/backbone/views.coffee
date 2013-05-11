@@ -18,16 +18,12 @@ class productformView extends Backbone.View
 		'click #savetoggle': 'submit'
 
 	capturePhoto: =>
-		#return @photoSuccess(['hello', 'boat'])
 		try
 			navigator.device.capture.captureImage @photoSuccess, @photoFail,
 				limit: 1
-			# navigator.camera.getPicture app.photoSuccess, app.photoFail,
-			# 	quality: 50
-			# 	destinationType: Camera.DestinationType.FILE_URI
 		catch error
 			console.error error
-		
+
 	photoSuccess: (mediaFiles) =>
 		@model.set 'mediaFiles', mediaFiles
 		new Snapshots mediaFiles,
@@ -52,7 +48,7 @@ class productformView extends Backbone.View
 		$('#snaps .thumbnails').empty()
 		# new model
 		@model = new savingModel()
-			
+
 
 
 class photoItemView extends Backbone.View
