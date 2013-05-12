@@ -1,4 +1,5 @@
-#productform{margin-top:20px;}#productform legend{border:none;}
+section{margin-top:20px;}
+#productform legend{border:none;}
 #camtoggle{margin-right:10px;}
 .center.navbar .nav,.center.navbar .nav>li{float:none;display:inline-block;vertical-align:top;}
 .center .navbar-inner{text-align:center;}
