@@ -1,13 +1,3 @@
-class navView extends Backbone.View
-	el: '#mainnav'
-	events:
-		'click a': (event) ->
-			event.preventDefault()
-			# hide all
-			$('#main section').hide()
-			# show the selected
-			$('#' + $(event.target).data('toggle')).show()
-
 
 class productformView extends Backbone.View
 
@@ -41,7 +31,8 @@ class productformView extends Backbone.View
 			return acc
 		, {}
 		@model.set data
-		app.savings.add @model
+		@collection.add @model
+		# Reset
 		# clear form
 		@$el[0].reset()
 		# remove imgs
@@ -62,7 +53,7 @@ class photoItemView extends Backbone.View
 class savingsView extends Backbone.View
 	el: '#savings'
 	initialize: =>
-		@model.bind 'change', @render, @
+		@model.on 'change', @render
 	render: =>
 		@$('tfoot td:nth-child(2)').html(@model.get('total'))
 		return @

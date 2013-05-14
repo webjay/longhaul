@@ -1,1 +1,2 @@
-exports.app = app = {}
+#exports.app = app = {}
+app = {}

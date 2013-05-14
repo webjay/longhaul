@@ -14,23 +14,29 @@ class Snapshots extends Backbone.Collection
 class Savings extends Backbone.Collection
 
 	model: savingModel
+	storage: new Offline.Storage 'savings', @
 
 	initialize: =>
-
-		@savingsModel = new savingsModel
-			collection: @
+		
+		# keep a score
+		@savingsModel = new savingsModel()
 		new savingsView
 			model: @savingsModel
 
+		# Events
 		@on 'add', (model) =>
+			model.save()
 			view = new savingView
 				model: model
 			$('#savings tbody').append(view.render().$el)
 			# calc total
 			@savingsModel.set 'total', @calcTotal()
 
+		# update
+		@fetch
+			local: true
+
 	calcTotal: ->
 		return @reduce (memo, value) ->
-			val = value.get('amount') || 0
-			return memo + parseInt(val, 10)
+			return memo + value.get('amount')
 		, 0

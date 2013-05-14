@@ -14,6 +14,7 @@ module.exports = (grunt) ->
 						'scripts/backbone/collections.coffee'
 						'scripts/backbone/templates.coffee'
 						'scripts/backbone/views.coffee'
+						'scripts/backbone/routes.coffee'
 						'scripts/app.coffee'
 					]
 
@@ -22,17 +23,19 @@ module.exports = (grunt) ->
 				options:
 					#sourceMap: 'lib/components.js.map'
 					mangle: false
+					wrap: false
 				files:
 					'www/lib/components.min.js': [
-						'components/jquery/jquery.js'
+						'components/zepto/zepto.js'
 						'components/underscore/underscore.js'
 						'components/backbone/backbone.js'
+						'components/backbone.offline/js/backbone_offline.js'
 					]
 			app:
 				options:
-					#sourceMap: 'lib/app.js.map'
+					sourceMap: 'www/lib/app.min.js.map'
 					mangle: false
-					wrap: 'lh'
+					wrap: false
 				files:
 					'www/lib/app.min.js': [
 						'scripts/tmp/app.js'
@@ -83,7 +86,7 @@ module.exports = (grunt) ->
 
 		watch:
 			coffee:
-				files: ['scripts/*.coffee']
+				files: ['scripts/*.coffee', 'scripts/backbone/*.coffee']
 				tasks: ['coffee', 'uglify']
 			less:
 				files: ['scripts/less/app.less']

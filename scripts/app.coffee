@@ -6,17 +6,13 @@
 # , false
 
 
-jQuery ($) ->
+Zepto ($) ->
 
 	Backbone.$ = $
 	
-	# because with .hide we can not use show()
-	$('#snaps .thumbnails').hide()
-	$('#savings').hide()
-
-	new navView()
-
 	new productformView
+		collection: new Savings()
 		model: new savingModel()
 
-	app.savings = new Savings()
+	new Router()
+	Backbone.history.start()
