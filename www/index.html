@@ -7,7 +7,7 @@
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 	<link rel="stylesheet" href="lib/components.min.css" />
 	<link rel="stylesheet" href="lib/style.min.css" />
-	<!--<script src="cordova-2.7.0.js"></script>-->
+	<script src="cordova-2.7.0.js"></script>
 	<script src="lib/components.min.js"></script>
 	<script src="lib/app.min.js"></script>
 </head>
@@ -24,7 +24,7 @@
 						<legend>What did you <strong>not</strong> buy?</legend>
 						<input type="text" name="product" maxlength="100" class="input-block-level" placeholder="What did you resist?" autofocus />
 						<div class="controls controls-row">
-							<button type="button" id="camtoggle" class="btn pull-left"><i class="icon-camera"></i></button>
+							<button type="button" id="camtoggle" tabindex="-1" class="btn pull-left"><i class="icon-camera"></i></button>
 							<input type="text" name="amount" maxlength="6" pattern="[0-9]*" placeholder="price" class="input-small" />
 						</div>
 						<button type="button" id="savetoggle" class="btn btn-block">Save</button>
@@ -62,6 +62,15 @@
 
 		</div>
 
+	</div>
+	
+	<div id="modalSavingDone" class="modal hide">
+		<div class="modal-body">
+			<p class="text-center">Awesome!</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">ok</button>
+		</div>
 	</div>
 
 	<div class="navbar navbar-fixed-bottom center">
