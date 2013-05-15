@@ -28,9 +28,11 @@ class Savings extends Backbone.Collection
 			model.save()
 			view = new savingView
 				model: model
-			$('#savings tbody').append(view.render().$el)
 			# calc total
-			@savingsModel.set 'total', @calcTotal()
+			@savingsModel.set 'total', @savingsModel.get('total') + model.get('amount')
+			
+		# sum of amounts
+		@calcTotal()
 
 		# update
 		@fetch

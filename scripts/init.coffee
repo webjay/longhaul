@@ -1,2 +1,0 @@
-#exports.app = app = {}
-app = {}

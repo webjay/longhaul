@@ -6,13 +6,16 @@
 # , false
 
 
-Zepto ($) ->
+#Zepto ($) ->
+jQuery ($) ->
 
 	Backbone.$ = $
+	
+	new navView()
 	
 	new productformView
 		collection: new Savings()
 		model: new savingModel()
 
-	new Router()
-	Backbone.history.start()
+	# new Router()
+	# Backbone.history.start()

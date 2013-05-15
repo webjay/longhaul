@@ -9,7 +9,6 @@ module.exports = (grunt) ->
 			compile:
 				files:
 					'scripts/tmp/app.js': [
-						'scripts/init.coffee'
 						'scripts/backbone/models.coffee'
 						'scripts/backbone/collections.coffee'
 						'scripts/backbone/templates.coffee'
@@ -21,19 +20,22 @@ module.exports = (grunt) ->
 		uglify:
 			components:
 				options:
-					#sourceMap: 'lib/components.js.map'
+					#sourceMap: 'lib/components.min.js.map'
 					mangle: false
 					wrap: false
 				files:
 					'www/lib/components.min.js': [
-						'components/zepto/zepto.js'
+						'components/jquery/jquery.js'
 						'components/underscore/underscore.js'
 						'components/backbone/backbone.js'
 						'components/backbone.offline/js/backbone_offline.js'
+						'components/bootstrap/js/bootstrap-transition.js'
+						'components/bootstrap/js/bootstrap-tab.js'
+						'components/bootstrap/js/bootstrap-modal.js'
 					]
 			app:
 				options:
-					sourceMap: 'www/lib/app.min.js.map'
+					#sourceMap: 'www/lib/app.min.js.map'
 					mangle: false
 					wrap: false
 				files:
@@ -68,6 +70,7 @@ module.exports = (grunt) ->
 					'components/bootstrap/less/responsive-navbar.less'
 					'components/bootstrap/less/sprites.less'
 					'components/bootstrap/less/tables.less'
+					'components/bootstrap/less/modals.less'
 				]
 
 		less:

@@ -15,60 +15,61 @@
 
 	<div id="main" class="container">
 
+		<div class="tab-content">
 
-		<section id="saveup">
+			<section id="saveup" class="tab-pane active">
 
-			<form id="productform">
-				<fieldset>
-					<legend>What did you <strong>not</strong> buy?</legend>
-					<input type="text" name="product" maxlength="100" class="input-block-level" placeholder="What did you resist?" autofocus />
-					<div class="controls controls-row">
-						<button type="button" id="camtoggle" class="btn pull-left"><i class="icon-camera"></i></button>
-						<input type="text" name="amount" maxlength="6" pattern="[0-9]*" placeholder="price" class="input-small" />
-					</div>
-					<button type="button" id="savetoggle" class="btn btn-block">Save</button>
-				</fieldset>
-			</form>
+				<form id="productform">
+					<fieldset>
+						<legend>What did you <strong>not</strong> buy?</legend>
+						<input type="text" name="product" maxlength="100" class="input-block-level" placeholder="What did you resist?" autofocus />
+						<div class="controls controls-row">
+							<button type="button" id="camtoggle" class="btn pull-left"><i class="icon-camera"></i></button>
+							<input type="text" name="amount" maxlength="6" pattern="[0-9]*" placeholder="price" class="input-small" />
+						</div>
+						<button type="button" id="savetoggle" class="btn btn-block">Save</button>
+					</fieldset>
+				</form>
 
-			<div id="snaps" class="text-center">
-				<ul class="thumbnails"></ul>
-			</div>
+				<div id="snaps" class="text-center">
+					<ul class="thumbnails"></ul>
+				</div>
 
-		</section>
+			</section>
 
+			<section id="savings" class="tab-pane">
 
-		<section id="savings">
+				<h2>Savings</h2>
 
-			<h2>Savings</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Photo</th>
+							<th>Product</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2"></td>
+							<td class="text-right">0</td>
+						</tr>
+					</tfoot>
+				</table>
 
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Photo</th>
-						<th>Product</th>
-						<th>Amount</th>
-					</tr>
-				</thead>
-				<tbody></tbody>
-				<tfoot>
-					<tr>
-						<td colspan="2"></td>
-						<td class="text-right">0</td>
-					</tr>
-				</tfoot>
-			</table>
+			</section>
 
-		</section>
-
+		</div>
 
 	</div>
 
 	<div class="navbar navbar-fixed-bottom center">
 		<nav class="navbar-inner">
-			<ul class="nav">
-				<li><a href="#saveup">Save up</a></li>
-				<li class="divider-vertical"></li>
-				<li><a href="#savings">Savings</a></li>
+			<ul id="mainnav" class="nav">
+				<li><a href="#saveup" data-toggle="tab">Save up</a></li>
+				<!-- <li class="divider-vertical"></li> -->
+				<li><a href="#savings" data-toggle="tab">Savings</a></li>
 			</ul>
 		</nav>
 	</div>

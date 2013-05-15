@@ -1,3 +1,9 @@
+class navView extends Backbone.View
+	el: '#mainnav'
+	events:
+		'shown a[href="#saveup"]': ->
+			$('#productform input[name="product"]').focus()
+	
 
 class productformView extends Backbone.View
 
@@ -61,6 +67,8 @@ class savingsView extends Backbone.View
 
 class savingView extends Backbone.View
 	tagName: 'tr'
+	initialize: ->
+		$('#savings tbody').append(@render().$el)
 	render: =>
 		@$el.html templates.savingView(@model.attributes)
 		return @
