@@ -14,8 +14,6 @@ class savingsModel extends Backbone.Model
 class savingModel extends Backbone.Model
 
 	defaults:
-		product: '?'
-		amount: 0
 		photo: 'http://farm9.staticflickr.com/8437/7985037130_00a14b4339_d.jpg'
 
 	initialize: ->
@@ -27,3 +25,7 @@ class savingModel extends Backbone.Model
 		@on 'change:amount', (event, data) ->
 			amount = parseInt(data, 10)
 			@set 'amount', amount || 0
+
+	validate: (attrs, options) ->
+		if $.trim(attrs.product) is '' and attrs.amount is 0
+			return 'not valid'

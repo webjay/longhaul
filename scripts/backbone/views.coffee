@@ -62,7 +62,7 @@ class savingsView extends Backbone.View
 	initialize: =>
 		@model.on 'change', @render
 	render: =>
-		total = new Intl.NumberFormat().format @model.get('total')
+		total = @model.get('total')
 		@$('tfoot td:nth-child(2)').html total
 		return @
 
@@ -73,6 +73,23 @@ class savingView extends Backbone.View
 		$('#savings tbody').append(@render().$el)
 	render: =>
 		attributes = _.clone @model.attributes
-		attributes.amount = new Intl.NumberFormat().format attributes.amount
+		attributes.amount = attributes.amount
 		@$el.html templates.savingView attributes
+		return @
+
+
+class modalSavingDoneView extends Backbone.View
+	el: '#modalSavingDone'
+	events:
+		'show': 'render'
+	cheers: ['Awesome', 'Bravo', 'Excellent']
+	cheer: ->
+		return @cheers[Math.floor(Math.random() * @cheers.length)]
+	render: =>
+		@model = @collection.at(@collection.length - 1)
+		attributes =
+			amount: @model.get 'amount'
+			total: @collection.savingsModel.get 'total'
+			cheer: @cheer()
+		@$('.modal-body').html templates.modalSavingDone attributes
 		return @

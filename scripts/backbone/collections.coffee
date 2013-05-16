@@ -15,30 +15,34 @@ class Savings extends Backbone.Collection
 
 	model: savingModel
 	storage: new Offline.Storage 'savings', @
+	savingsModel: new savingsModel()
 
 	initialize: =>
 		
 		# keep a score
-		@savingsModel = new savingsModel()
 		new savingsView
 			model: @savingsModel
 
 		# Events
 		@on 'add', (model) =>
-			model.save()
+			if not model.isValid()
+				return model.destroy()
+			if not model.get 'sid'
+				model.save()
 			view = new savingView
 				model: model
 			# calc total
 			@savingsModel.set 'total', @savingsModel.get('total') + model.get('amount')
 			
-		# sum of amounts
-		@calcTotal()
-
 		# update
 		@fetch
 			local: true
+			
+		# sum of amounts
+		#@calcTotal()
 
 	calcTotal: ->
-		return @reduce (memo, value) ->
-			return memo + value.get('amount')
+		amounts = @pluck 'amount'
+		amounts.reduce (previousValue, currentValue) ->
+			return currentValue + previousValue
 		, 0
