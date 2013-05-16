@@ -1,8 +1,8 @@
 class navView extends Backbone.View
 	el: '#mainnav'
-	# events:
-	# 	'shown a[href="#saveup"]': ->
-	# 		$('#productform input[name="product"]').focus()
+	events:
+		'shown a[href="#saveup"]': ->
+			$('#productform input[name="product"]').focus()
 	
 
 class productformView extends Backbone.View
@@ -62,7 +62,8 @@ class savingsView extends Backbone.View
 	initialize: =>
 		@model.on 'change', @render
 	render: =>
-		@$('tfoot td:nth-child(2)').html(@model.get('total'))
+		total = new Intl.NumberFormat().format @model.get('total')
+		@$('tfoot td:nth-child(2)').html total
 		return @
 
 
@@ -71,5 +72,7 @@ class savingView extends Backbone.View
 	initialize: ->
 		$('#savings tbody').append(@render().$el)
 	render: =>
-		@$el.html templates.savingView(@model.attributes)
+		attributes = _.clone @model.attributes
+		attributes.amount = new Intl.NumberFormat().format attributes.amount
+		@$el.html templates.savingView attributes
 		return @

@@ -90,10 +90,10 @@ module.exports = (grunt) ->
 		watch:
 			coffee:
 				files: ['scripts/*.coffee', 'scripts/backbone/*.coffee']
-				tasks: ['coffee', 'uglify']
+				tasks: ['coffee', 'uglify:app']
 			less:
 				files: ['scripts/less/app.less']
-				tasks: ['less app']
+				tasks: ['less:app']
 
 		connect:
 			app:
