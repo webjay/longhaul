@@ -18,12 +18,20 @@
 				border-radius: 0;
 				margin-bottom: 0;
 			}
-			.jumbotron h1 {
-				font-size: 70px;
+			.jumbotron {
+				text-align: center;
 			}
-			.jumbotron .lead {
-				font-size: 24px;
-				letter-spacing: 2px;
+			@media screen and (min-width: 768px) {
+				.jumbotron {
+					text-align: left;
+				}
+				.jumbotron h1 {
+					font-size: 70px;
+				}
+				.jumbotron .lead {
+					font-size: 24px;
+					letter-spacing: 2px;
+				}
 			}
 			form {
 				margin-top: 30px;
@@ -35,6 +43,10 @@
 				background-color: rgb(220, 91, 60);
 				height: 50px;
 				margin-bottom: 40px;
+			}
+			.fb-like {
+				width: 48px !important;
+				overflow: hidden !important;
 			}
 		</style>
 		<!--[if lt IE 9]>
@@ -48,11 +60,11 @@
 		<div class="jumbotron">
 			<div class="container">
 				<div class="row">
-					<div class="col col-lg-5">
+					<div class="col col-lg-5 col-sm-12">
 						<h1>Longhaul</h1>
 						<p class="lead">Stealth project with a mission to motivate for charity</p>
 					</div>
-					<div class="col col-offset-2 col-lg-5">
+					<div class="col col-offset-2 col-lg-5 col-sm-12">
 						<form action="http://webcom.us2.list-manage1.com/subscribe/post?u=228e04b4c873a783c32cdae85&amp;id=45b19177d7" method="post" novalidate>
 							<fieldset>
 								<label for="mce-EMAIL">Sign up to our waiting list</label>
@@ -76,8 +88,8 @@
 					<small>A project by <a href="http://www.webcom.dk/" rel="me">Webcom</a></small>
 				</div>
 				<div class="col col-lg-4 text-center">
-					<div id="fb-root"></div>
-					<div class="fb-like" data-href="http://longhaul.io/" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+					<div id="fb-root" class="hide"></div>
+					<div class="fb-like" data-href="http://longhaul.io/" data-send="false" data-layout="button_count"></div>
 				</div>
 			</div>
 		</footer>
