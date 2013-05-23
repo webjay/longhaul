@@ -5,6 +5,7 @@
 	<description>Operation Longhaul</description>
 	<author href="http://jacob.saxberg.dk/" email="jacob@webcom.dk">Jacob Friis Saxberg</author>
 
+	<preference name="phonegap-version" value="2.7.0" />
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="BackupWebStorage" value="cloud" />
