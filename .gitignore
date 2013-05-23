@@ -21,3 +21,6 @@ scripts/tmp
 
 # Xcode 4 - semi-personal settings
 xcuserdata
+
+# gh-pages
+_scripts

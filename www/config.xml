@@ -20,6 +20,7 @@
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="TopActivityIndicator" value="gray" />
+	<preference name="prerendered-icon" value="true" />
 
     <content src="index.html" />
 
