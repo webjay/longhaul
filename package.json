@@ -1,0 +1,8 @@
+{
+  "name": "longhaul",
+  "version": "0.0.1",
+  "devDependencies": {},
+  "dependencies": {
+    "git-wrapper": "~0.1.0"
+  }
+}
