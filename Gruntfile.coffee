@@ -22,20 +22,3 @@ module.exports = (grunt) ->
 	# grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-contrib-less'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
-
-	grunt.registerTask 'gitploy', 'Deploy to GitHub Pages', ->
-		paths = ['lib', 'index.html']
-		Git = require 'git-wrapper'
-		git = new Git()
-		done = @async()
-		git.exec 'checkout gh-pages', (err) ->
-			throw err if err?
-			git.exec 'checkout master -- ' + paths.join(' '), (err) ->
-				throw err if err?
-				git.exec 'commit -am "updates from master"', (err) ->
-					throw err if err?
-					git.exec 'push origin gh-pages', (err) ->
-						throw err if err?
-						git.exec 'checkout master', (err) ->
-							throw err if err?
-							done()
