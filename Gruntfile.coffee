@@ -76,7 +76,7 @@ module.exports = (grunt) ->
       bootstrap:
         options:
           compress: true
-          paths: ['bower_components/bootstrap/less']
+          paths: ['scripts/less/', 'bower_components/bootstrap/less']
         files:
           'lib/bootstrap.min.css': ['scripts/less/bootstrap.less']
       app:

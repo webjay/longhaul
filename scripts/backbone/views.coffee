@@ -82,7 +82,7 @@ class modalSavingDoneView extends Backbone.View
 	el: '#modalSavingDone'
 	events:
 		'show': 'render'
-	cheers: ['Awesome', 'Bravo', 'Excellent']
+	cheers: ['Awesome', 'Bravo', 'Brava', 'Excellent', 'Well done', 'Splendid', 'Marvellous', 'Magnificent', 'Brilliant']
 	cheer: ->
 		return @cheers[Math.floor(Math.random() * @cheers.length)]
 	render: =>
