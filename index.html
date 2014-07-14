@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Operation Longhaul</title>
-	<meta name="format-detection" content="telephone=no" />
-	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-	<link rel="stylesheet" href="lib/components.min.css" />
+	<title>Longhaul</title>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+	<link rel="stylesheet" href="lib/bootstrap.min.css" />
 	<link rel="stylesheet" href="lib/style.min.css" />
-	<!--<script src="cordova.ios.js"></script>-->
-	<script src="phonegap.js"></script>
 	<script src="lib/components.min.js"></script>
 	<script src="lib/app.min.js"></script>
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body>
 
@@ -25,7 +24,8 @@
 						<legend>What did you <strong>not</strong> buy?</legend>
 						<input type="text" name="product" maxlength="100" class="input-block-level" placeholder="What did you resist?" autofocus />
 						<div class="controls controls-row">
-							<button type="button" id="camtoggle" tabindex="-1" class="btn pull-left"><i class="icon-camera"></i></button>
+              <!-- <input type="file" accept="image/*" capture="camera"> -->
+							<button type="button" id="camtoggle" tabindex="-1" class="btn pull-left" disabled><i class="icon-camera"></i></button>
 							<input type="text" name="amount" maxlength="6" pattern="[0-9]*" placeholder="price" class="input-small" />
 						</div>
 						<button type="button" id="savetoggle" class="btn btn-block">Save</button>

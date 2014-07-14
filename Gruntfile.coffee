@@ -1,110 +1,110 @@
 module.exports = (grunt) ->
 
-	grunt.initConfig
+  grunt.initConfig
 
-		coffee:
-			options:
-				join: true
-				bare: true
-			compile:
-				files:
-					'scripts/tmp/app.js': [
-						'scripts/backbone/models.coffee'
-						'scripts/backbone/collections.coffee'
-						'scripts/backbone/templates.coffee'
-						'scripts/backbone/views.coffee'
-						'scripts/backbone/routes.coffee'
-						'scripts/app.coffee'
-					]
+    coffee:
+      options:
+        join: true
+        bare: true
+      compile:
+        files:
+          'scripts/tmp/app.js': [
+            'scripts/backbone/models.coffee'
+            'scripts/backbone/collections.coffee'
+            'scripts/backbone/templates.coffee'
+            'scripts/backbone/views.coffee'
+            'scripts/backbone/routes.coffee'
+            'scripts/app.coffee'
+          ]
 
-		uglify:
-			components:
-				options:
-					#sourceMap: 'lib/components.min.js.map'
-					mangle: false
-					wrap: false
-				files:
-					'www/lib/components.min.js': [
-						'components/jquery/jquery.js'
-						'components/underscore/underscore.js'
-						'components/backbone/backbone.js'
-						'components/backbone.offline/js/backbone_offline.js'
-						'components/bootstrap/js/bootstrap-transition.js'
-						'components/bootstrap/js/bootstrap-tab.js'
-						'components/bootstrap/js/bootstrap-modal.js'
-					]
-			app:
-				options:
-					#sourceMap: 'www/lib/app.min.js.map'
-					mangle: false
-					wrap: false
-				files:
-					'www/lib/app.min.js': [
-						'scripts/tmp/app.js'
-					]
+    uglify:
+      components:
+        options:
+          #sourceMap: 'lib/components.min.js.map'
+          mangle: false
+          wrap: false
+        files:
+          'lib/components.min.js': [
+            'bower_components/jquery/jquery.js'
+            'bower_components/underscore/underscore.js'
+            'bower_components/backbone/backbone.js'
+            'bower_components/backbone.offline/js/backbone_offline.js'
+            'bower_components/bootstrap/js/bootstrap-transition.js'
+            'bower_components/bootstrap/js/bootstrap-tab.js'
+            'bower_components/bootstrap/js/bootstrap-modal.js'
+          ]
+      app:
+        options:
+          #sourceMap: 'lib/app.min.js.map'
+          mangle: false
+          wrap: false
+        files:
+          'lib/app.min.js': [
+            'scripts/tmp/app.js'
+          ]
 
-		concat:
-			bootstrap:
-				dest: 'scripts/tmp/bootstrap.less'
-				src: [
-					'components/bootstrap/less/variables.less'
-					'components/bootstrap/less/mixins.less'
-					'components/bootstrap/less/reset.less'
-					'components/bootstrap/less/scaffolding.less'
-					'components/bootstrap/less/grid.less'
-					'components/bootstrap/less/layouts.less'
-					'components/bootstrap/less/type.less'
-					'components/bootstrap/less/forms.less'
-					'components/bootstrap/less/buttons.less'
-					'components/bootstrap/less/button-groups.less'
-					'components/bootstrap/less/navs.less'
-					'components/bootstrap/less/navbar.less'
-					'components/bootstrap/less/thumbnails.less'
-					'components/bootstrap/less/alerts.less'
-					'components/bootstrap/less/modals.less'
-					'components/bootstrap/less/media.less'
-					'components/bootstrap/less/close.less'
-					'components/bootstrap/less/utilities.less'
-					'components/bootstrap/less/responsive-utilities.less'
-					'components/bootstrap/less/responsive-767px-max.less'
-					'components/bootstrap/less/responsive-navbar.less'
-					'components/bootstrap/less/sprites.less'
-					'components/bootstrap/less/tables.less'
-					'components/bootstrap/less/modals.less'
-				]
+    # concat:
+    #   bootstrap:
+    #     dest: 'scripts/tmp/bootstrap.less'
+    #     src: [
+    #       'bower_components/bootstrap/less/variables.less'
+    #       'bower_components/bootstrap/less/mixins.less'
+    #       'bower_components/bootstrap/less/reset.less'
+    #       'bower_components/bootstrap/less/scaffolding.less'
+    #       'bower_components/bootstrap/less/grid.less'
+    #       'bower_components/bootstrap/less/layouts.less'
+    #       'bower_components/bootstrap/less/type.less'
+    #       'bower_components/bootstrap/less/forms.less'
+    #       'bower_components/bootstrap/less/buttons.less'
+    #       'bower_components/bootstrap/less/button-groups.less'
+    #       'bower_components/bootstrap/less/navs.less'
+    #       'bower_components/bootstrap/less/navbar.less'
+    #       'bower_components/bootstrap/less/thumbnails.less'
+    #       'bower_components/bootstrap/less/alerts.less'
+    #       'bower_components/bootstrap/less/modals.less'
+    #       'bower_components/bootstrap/less/media.less'
+    #       'bower_components/bootstrap/less/close.less'
+    #       'bower_components/bootstrap/less/utilities.less'
+    #       'bower_components/bootstrap/less/responsive-utilities.less'
+    #       'bower_components/bootstrap/less/responsive-767px-max.less'
+    #       'bower_components/bootstrap/less/responsive-navbar.less'
+    #       'bower_components/bootstrap/less/sprites.less'
+    #       'bower_components/bootstrap/less/tables.less'
+    #       'bower_components/bootstrap/less/modals.less'
+    #     ]
+    less:
+      bootstrap:
+        options:
+          compress: true
+          paths: ['bower_components/bootstrap/less']
+        files:
+          'lib/bootstrap.min.css': ['scripts/less/bootstrap.less']
+      app:
+        options:
+          compress: true
+        files:
+          'lib/style.min.css': [
+            'scripts/less/app.less'
+          ]
 
-		less:
-			options:
-				compress: true
-			components:
-				files:
-					'www/lib/components.min.css': [
-						'scripts/tmp/bootstrap.less'
-					]
-			app:
-				files: 
-					'www/lib/style.min.css': [
-						'scripts/less/app.less'
-					]
+    watch:
+      coffee:
+        files: ['scripts/*.coffee', 'scripts/backbone/*.coffee']
+        tasks: ['coffee', 'uglify:app']
+      less:
+        files: ['scripts/less/app.less']
+        tasks: ['less:app']
 
-		watch:
-			coffee:
-				files: ['scripts/*.coffee', 'scripts/backbone/*.coffee']
-				tasks: ['coffee', 'uglify:app']
-			less:
-				files: ['scripts/less/app.less']
-				tasks: ['less:app']
+    connect:
+      app:
+        options:
+          keepalive: true
 
-		connect:
-			app:
-				options:
-					keepalive: true
+  grunt.registerTask 'default', ['coffee', 'uglify', 'less']
 
-	grunt.registerTask 'default', ['coffee', 'uglify', 'concat', 'less']
-
-	grunt.loadNpmTasks 'grunt-contrib-coffee'
-	grunt.loadNpmTasks 'grunt-contrib-uglify'
-	grunt.loadNpmTasks 'grunt-contrib-less'
-	grunt.loadNpmTasks 'grunt-contrib-watch'
-	grunt.loadNpmTasks 'grunt-contrib-connect'
-	grunt.loadNpmTasks 'grunt-contrib-concat'
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
+  grunt.loadNpmTasks 'grunt-contrib-less'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-connect'
+  grunt.loadNpmTasks 'grunt-contrib-concat'

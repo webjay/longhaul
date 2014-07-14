@@ -9,7 +9,7 @@
   "dependencies": {
     "backbone": "1.0",
     "underscore": "1.5",
-    "bootstrap": "3.2",
+    "bootstrap": "2",
     "backbone.offline": "0.5"
   }
 }

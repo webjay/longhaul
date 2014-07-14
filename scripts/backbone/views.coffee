@@ -10,15 +10,15 @@ class productformView extends Backbone.View
 	el: '#productform'
 
 	events:
-		'click #camtoggle': 'capturePhoto'
+    # 'click #camtoggle': 'capturePhoto'
 		'click #savetoggle': 'submit'
 
-	capturePhoto: =>
-		try
-			navigator.device.capture.captureImage @photoSuccess, @photoFail,
-				limit: 1
-		catch error
-			console.error error
+  # capturePhoto: =>
+  #   try
+  #     navigator.device.capture.captureImage @photoSuccess, @photoFail,
+  #       limit: 1
+  #   catch error
+  #     console.error error
 
 	photoSuccess: (mediaFiles) =>
 		@model.set 'mediaFiles', mediaFiles

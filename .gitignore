@@ -13,7 +13,7 @@ results
 
 npm-debug.log
 
-components
+bower_components
 node_modules
 
 scripts/tmp
