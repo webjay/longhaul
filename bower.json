@@ -1,16 +1,15 @@
 {
   "name": "longhaul",
-  "version": "1.0",
+  "version": "1.1",
   "ignore": [
     "**/.*",
     "node_modules",
     "components"
   ],
   "dependencies": {
-    "backbone": "~1.0.0",
-    "underscore": "~1.4.4",
-    "bootstrap": "~2.3.1",
-    "backbone.offline": "~0.3.0",
-    "phonegap": "~2.7.0"
+    "backbone": "1.0",
+    "underscore": "1.5",
+    "bootstrap": "3.2",
+    "backbone.offline": "0.5"
   }
 }
