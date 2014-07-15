@@ -1,24 +1,21 @@
 
-
-# document.addEventListener 'deviceready', ->
-# 	lh.app.pictureSource = navigator.camera.PictureSourceType
-# 	lh.app.destinationType = navigator.camera.DestinationType
-# , false
-
 jQuery ($) ->
+  
+  if ('standalone' in window.navigator) and window.navigator.standalone
+    $('body').css 'border-top-width', '15px'
 
-	Backbone.$ = $
-	
-	new navView()
-	
-	savings = new Savings()
-	
-	new productformView
-		collection: savings
-		model: new savingModel()
+  Backbone.$ = $
+  
+  new navView()
+  
+  savings = new Savings()
+  
+  new productformView
+    collection: savings
+    model: new savingModel()
 
-	new modalSavingDoneView
-		collection: savings
+  new modalSavingDoneView
+    collection: savings
 
-	# new Router()
-	# Backbone.history.start()
+  # new Router()
+  # Backbone.history.start()
