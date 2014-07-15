@@ -1,8 +1,8 @@
 class navView extends Backbone.View
 	el: '#mainnav'
-	events:
-		'shown a[href="#saveup"]': ->
-			$('#productform input[name="product"]').focus()
+  # events:
+  #   'shown a[href="#saveup"]': ->
+  #     $('#productform input[name="product"]').focus()
 	
 
 class productformView extends Backbone.View
